@@ -13,83 +13,138 @@
   --label-font-size: 1.5rem;
   --after-font-size: 24px;
   --fade-duration: 0.3s;
+  --header-height: 80px;
+  --logo-width: 150px;
+  --gap: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
 .header_Header__container {
-  display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
-  position: relative;
-}
-
-.searchboxForm {
+  position: sticky;
+  top: 0;
   display: flex;
-  position: relative;
-  border: var(--border);
-  border-radius: var(--border-radius);
-  padding: var(--padding);
-  cursor: text;
-  text-align: center;
+  align-items: center;
+  height: var(--header-height);
+  background-color: #fff;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 
-  & .SearchBox__input {
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: var(--input-font-size);
-    color: var(--primary-color);
-    background-color: #fff;
-    border-radius: 10px;
-    padding-left: var(--padding-left-with-icon);
-    transition: padding-left var(--transition-duration);
+  .header_Header__logo {
+    flex: 0 0 auto;
+  }
 
-    &:not(:placeholder-shown)~ .searchboxForm__label {
-      opacity: 0;
-    }
+  .searchbox_SearchBox--header {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 
-    &:not(:placeholder-shown)~ .searchboxForm__icon {
-      opacity: 0;
-    }
+    .searchboxForm {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      border: var(--border);
+      border-radius: var(--border-radius);
+      padding: var(--padding);
+      cursor: text;
+      text-align: center;
 
-    &:not(:placeholder-shown) {
-      padding-left: var(--padding-left-without-icon);
+      .SearchBox__input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: var(--input-font-size);
+        color: var(--primary-color);
+        background-color: #fff;
+        border-radius: 10px;
+        padding-left: var(--padding-left-with-icon);
+        transition: padding-left var(--transition-duration);
+
+        &:not(:placeholder-shown) ~ .searchboxForm__label {
+          opacity: 0;
+        }
+
+        &:not(:placeholder-shown) ~ .searchboxForm__icon {
+          opacity: 0;
+        }
+
+        &:not(:placeholder-shown) {
+          padding-left: var(--padding-left-without-icon);
+        }
+      }
+
+      .searchboxForm__icon {
+        position: absolute;
+        color: var(--primary-color);
+        top: 50%;
+        left: var(--icon-left);
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        transition: opacity var(--transition-duration);
+        opacity: 1;
+      }
+
+      .searchboxForm__label {
+        position: absolute;
+        left: var(--label-left);
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: var(--label-font-size);
+        color: var(--primary-color);
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        transition: opacity var(--fade-duration);
+
+        span {
+          display: inline-block;
+          font-size: var(--after-font-size);
+          color: var(--secondary-color);
+          margin-left: 10px;
+          opacity: 1;
+          transition: opacity var(--fade-duration);
+        }
+      }
     }
   }
 
-  & .searchboxForm__icon {
-    position: absolute;
-    color: var(--primary-color);
-    top: 50%;
-    left: var(--icon-left);
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    transition: opacity var(--transition-duration);
-    opacity: 1;
-  }
-
-  & .searchboxForm__label {
-    position: absolute;
-    left: var(--label-left);
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: var(--label-font-size);
-    color: var(--primary-color);
-    pointer-events: none;
+  .header__button {
     display: flex;
     align-items: center;
-    transition: opacity var(--fade-duration);
-
-    & span {
-      display: inline-block;
-      font-size: var(--after-font-size);
-      color: var(--secondary-color);
-      margin-left: 10px;
-      opacity: 1;
-      transition: opacity var(--fade-duration);
-    }
+    gap: var(--gap);
+    flex: 0 0 auto;
   }
 
+  .d-none {
+    display: none !important;
+  }
 
+  .d-lg-flex {
+    display: flex !important;
+  }
 
-  
+  .align-items-center {
+    align-items: center;
+  }
 
+  .text-nowrap {
+    white-space: nowrap;
+  }
+
+  .anchor-button_AnchorButton__gJxoN {
+    margin-left: var(--gap);
+  }
+
+  .anchor-button_AnchorButton__icon__1AbW0 {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
 }
