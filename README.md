@@ -100,8 +100,7 @@ Copiar código
 
 ### Notas:
 
-- **Imágenes de los responsables:** Las URLs de las imágenes deben ser reemplazadas por URLs reales de las fotos de los responsables. Puedes subir las imágenes a tu repositorio de GitHub y utilizar la URL pública que te proporciona GitHub.
 - **Enlaces y usuarios:** Asegúrate de reemplazar los nombres de los responsables con los usuarios de GitHub reales, si están disponibles.
 - **Estructura del proyecto:** Ajusta la estructura del proyecto en la sección "Estructura del Proyecto" si hay alguna diferencia con tu proyecto real.
 
-Este README proporciona una guía clara sobre el proyecto y las responsabilidades de cada miembro del equipo, y ayuda a los colaboradores a entender cómo contribuir al proyecto.
+
