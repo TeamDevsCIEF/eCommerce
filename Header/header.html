@@ -1,29 +1,19 @@
+<script src="SearchboxForm/SearchboxForm.js" defer></script>
 <header id="Header" class="header_Header__container">
-    <div class="header_Header__logo">
-        <a href="/" title="segunda mano">
-            <picture class="header__logo">
-                <source srcset="/sources/images/header/logo-wallapop-home-v2.svg" media="(min-width: 992px)">
-                <source srcset="/sources/images/header/mobile-logo-wallapop-home-v2.svg" media="(max-width: 992px)">
-                <img srcset=" /sources/images/header/logo-wallapop-home-v2.svg" alt="wallapop">
-            </picture>
-        </a>
-    </div>
-    <div class="searchbox_SearchBox--header">
-        <form name="searchbox" class="searchboxForm">
-            <input type="search" class="SearchBox__input" autocomplete="off" placeholder=" ">
-            <img class="searchboxForm__icon" src="/sources/images/header/search-icon.svg" width="20" height="20"
-                alt="Search Icon Magnifier">
-            <label class="searchboxForm__label" for="">Buscar<span></span></label>
-        </form>
-        <div class="searchbox_SearchBox__suggestionsWrapper">
-            <div class="position-relative"></div>
-        </div>
-    </div>
-    <div class="header__button">
-
-        <button class="header__button">Regístrate o inicia
-            sesión</button>
-
-        <button class="header__button">Vender</button>
-    </div>
+  <div class="header_Header__logo">
+    <a href="/" title="segunda mano">
+      <picture class="header__logo">
+        <source srcset="/sources/images/header/logo-wallapop-home-v2.svg" media="(min-width: 992px)">
+        <source srcset="/sources/images/header/mobile-logo-wallapop-home-v2.svg" media="(max-width: 992px)">
+        <img srcset=" /sources/images/header/logo-wallapop-home-v2.svg" alt="wallapop">
+      </picture>
+    </a>
+  </div>
+  <div class="searchbox_SearchBox--header">
+    <my-searchboxform></my-searchboxform>
+  </div>
+  <div class="header__button">
+    <button class="header__button">Regístrate o inicia sesión</button>
+    <button class="header__button">Vender</button>
+  </div>
 </header>

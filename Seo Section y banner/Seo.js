@@ -25,10 +25,10 @@ class MySeo extends HTMLElement {
                 wrapper.innerHTML = html;
                 this.shadowRoot.appendChild(wrapper);
             } else {
-                console.error('Error loading Hero.html:', response.statusText);
+                console.error('Error loading Seo.html:', response.statusText);
             }
         } catch (error) {
-            console.error('Error fetching Hero.html:', error);
+            console.error('Error fetching Seo.html:', error);
         }
     }
   }
