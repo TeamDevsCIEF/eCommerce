@@ -1,25 +1,37 @@
-// header.js
 class MyHeader extends HTMLElement {
   constructor() {
     super();
 
     // Crear un shadow root
-    const shadow = this.attachShadow({ mode: 'open' });
+    this.attachShadow({ mode: 'open' });
+  }
 
-    // Crear elementos dentro del shadow root
-    const wrapper = document.createElement('div');
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Hola Mundo w';
+  connectedCallback() {
+    // Cargar contenido HTML y CSS
+    this.loadContent();
+  }
 
-    // Cargar estilos desde un archivo CSS
+  async loadContent() {
+    // Cargar y adjuntar los estilos desde un archivo CSS
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', './Header/header.css');
+    linkElem.setAttribute('href', '/Header/header.css');
+    this.shadowRoot.appendChild(linkElem);
 
-    // Adjuntar los elementos al shadow root
-    shadow.appendChild(linkElem);
-    shadow.appendChild(wrapper);
-    wrapper.appendChild(h1);
+    // Cargar contenido HTML desde un archivo
+    try {
+      const response = await fetch('./Header/header.html');
+      if (response.ok) {
+        const html = await response.text();
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = html;
+        this.shadowRoot.appendChild(wrapper);
+      } else {
+        console.error('Error loading header.html:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error fetching header.html:', error);
+    }
   }
 }
 

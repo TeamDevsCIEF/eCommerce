@@ -1,12 +1,95 @@
-/* header.css */
-div {
-    text-align: center;
-    background-color: #333;
-    color: #b12929;
-    padding: 10px;
+:host {
+  --primary-color: #a3b8c1;
+  --secondary-color: #000;
+  --input-font-size: 1.5rem;
+  --label-left: 40px;
+  --icon-left: 10px;
+  --transition-duration: 0.3s;
+  --border-radius: 30px;
+  --border: solid 1px;
+  --padding: 5px 10px;
+  --padding-left-with-icon: 34px;
+  --padding-left-without-icon: 10px;
+  --label-font-size: 1.5rem;
+  --after-font-size: 24px;
+  --fade-duration: 0.3s;
+}
+
+.header_Header__container {
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  position: relative;
+}
+
+.searchboxForm {
+  display: flex;
+  position: relative;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  cursor: text;
+  text-align: center;
+
+  & .SearchBox__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: var(--input-font-size);
+    color: var(--primary-color);
+    background-color: #fff;
+    border-radius: 10px;
+    padding-left: var(--padding-left-with-icon);
+    transition: padding-left var(--transition-duration);
+
+    &:not(:placeholder-shown)~ .searchboxForm__label {
+      opacity: 0;
+    }
+
+    &:not(:placeholder-shown)~ .searchboxForm__icon {
+      opacity: 0;
+    }
+
+    &:not(:placeholder-shown) {
+      padding-left: var(--padding-left-without-icon);
+    }
   }
-  
-  h1 {
-    margin: 0;
+
+  & .searchboxForm__icon {
+    position: absolute;
+    color: var(--primary-color);
+    top: 50%;
+    left: var(--icon-left);
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    transition: opacity var(--transition-duration);
+    opacity: 1;
   }
+
+  & .searchboxForm__label {
+    position: absolute;
+    left: var(--label-left);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: var(--label-font-size);
+    color: var(--primary-color);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    transition: opacity var(--fade-duration);
+
+    & span {
+      display: inline-block;
+      font-size: var(--after-font-size);
+      color: var(--secondary-color);
+      margin-left: 10px;
+      opacity: 1;
+      transition: opacity var(--fade-duration);
+    }
+  }
+
+
+
   
+
+}
