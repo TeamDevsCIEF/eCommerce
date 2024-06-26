@@ -14,6 +14,12 @@ class MyHeader extends HTMLElement {
     linkElem.setAttribute('href', '/Header/header.css');
     this.shadowRoot.appendChild(linkElem);
 
+    // Cargar estilos globales
+    const globalStyles = document.createElement('link');
+    globalStyles.setAttribute('rel', 'stylesheet');
+    globalStyles.setAttribute('href', '/style.css'); // Ruta al archivo de estilos globales
+    this.shadowRoot.appendChild(globalStyles);
+
     try {
       const response = await fetch('/Header/header.html');
       if (response.ok) {

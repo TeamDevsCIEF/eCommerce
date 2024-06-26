@@ -1,85 +1,66 @@
 :host {
-  --primary-blue-color: #3dd2ba;
-  --primary-color: #a3b8c1;
-  --secondary-color: #000;
-  --input-font-size: 1.5rem;
-  --label-left: 40px;
-  --icon-left: 10px;
-  --transition-duration: 0.3s;
   --border-radius: 30px;
-  --border: solid 1px;
-  --padding: 5px 10px;
-  --padding-left-with-icon: 30px;
-  --padding-left-without-icon: 1px;
-  --label-font-size: 1.5rem;
-  --after-font-size: 24px;
-  --fade-duration: 0.3s;
-  --header-height: 80px;
-  --logo-width: 150px;
-  --gap: 10px;
+
 }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 .header_Header__container {
   position: sticky;
   top: 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 0.5fr 8fr 2fr;
   align-items: center;
-  height: var(--header-height);
   background-color: #fff;
-  padding: 0 20px;
+  padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  gap: 15px;
+  gap: 5px;
 
+  
   .header_Header__logo {
     flex: 0 0 auto;
   }
 
   .searchbox_SearchBox--header {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-
+ 
     
   }
 
-  .header__button {
+  
+  .header__box_button{
+    display: grid;
+    grid-template-columns: minmax(auto,170px) minmax(auto,100px);
+    gap: 5px;
+    flex-wrap: nowrap;
+
+    .header__button {
+      height: 30px;
+      border-radius: 15px;
+      width: auto;
+      background: transparent ;
+      color: var(--primary-blue-color);
+      border: solid 1px var(--primary-blue-color);
+  
+      &:hover{
+        background: var(--primary-blue-color);
+        color: #fff;
+      }
+    }
 
   }
 
-  .d-none {
-    display: none !important;
-  }
+  /* Media Query para pantallas pequeñas */
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr 4fr;
 
-  .d-lg-flex {
-    display: flex !important;
-  }
-
-  .align-items-center {
-    align-items: center;
-  }
-
-  .text-nowrap {
-    white-space: nowrap;
-  }
-
-
-  .header__button {
-    width: auto;
-    height: 40px;
-    border-radius: 15px;
-    background: transparent ;
-    color: var(--primary-blue-color);
-    border: solid 1px var(--primary-blue-color);
-
-    &:hover{
-      background: var(--primary-blue-color);
-      color: #fff;
+    .header__box_button {
+      display: none;
     }
   }
+  
 }

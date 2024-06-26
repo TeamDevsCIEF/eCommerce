@@ -1,8 +1,25 @@
+:host {
+    --primary-gray-color:#a3b8c1;
+    --secondary-gray-color:#5c7a89;
+    --input-font-size: 1.5rem;
+    --label-left: 40px;
+    --icon-left: 10px;
+    --transition-duration: 0.3s;
+    --border-radius: 30px;
+    --border: solid 1px;
+    --padding: 5px 10px;
+    --padding-left-with-icon: 30px;
+    --padding-left-without-icon: 1px;
+    --label-font-size: 1.5rem;
+    --after-font-size: 24px;
+    --fade-duration: 0.3s;
+    --header-height: 80px;
+    --logo-width: 150px;
+}
+
 .searchboxForm {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 600px;
     position: relative;
     border: var(--border);
     border-radius: var(--border-radius);
@@ -15,11 +32,14 @@
         border: none;
         outline: none;
         font-size: var(--input-font-size);
-        color: var(--primary-color);
         background-color: #fff;
         border-radius: 10px;
         padding-left: var(--padding-left-with-icon);
         transition: padding-left var(--transition-duration);
+
+        &::-webkit-search-cancel-button {
+
+        }
 
         &:not(:placeholder-shown)~.searchboxForm__label {
             opacity: 0;
@@ -52,7 +72,7 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: var(--label-font-size);
-        color: var(--primary-color);
+        color: var(--primary-gray-color);
         pointer-events: none;
         display: flex;
         align-items: center;
@@ -61,7 +81,7 @@
         span {
             display: inline-block;
             font-size: var(--after-font-size);
-            color: var(--secondary-color);
+            color: var(--secondary-gray-color);
             margin-left: 10px;
             opacity: 1;
             transition: opacity var(--fade-duration);

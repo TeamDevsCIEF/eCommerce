@@ -1,0 +1,20 @@
+:host {
+    --primary-blue-color: #3dd2ba;
+    --primary-color: #a3b8c1;
+    --secondary-color: #000;
+    --input-font-size: 1.5rem;
+    --label-left: 40px;
+    --icon-left: 10px;
+    --transition-duration: 0.3s;
+    --border-radius: 30px;
+    --border: solid 1px;
+    --padding: 5px 10px;
+    --padding-left-with-icon: 30px;
+    --padding-left-without-icon: 1px;
+    --label-font-size: 1.5rem;
+    --after-font-size: 24px;
+    --fade-duration: 0.3s;
+    --header-height: 80px;
+    --logo-width: 150px;
+    --gap: 10px;
+  }
