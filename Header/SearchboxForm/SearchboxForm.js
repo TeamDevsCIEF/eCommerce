@@ -38,8 +38,19 @@ class SearchboxForm extends HTMLElement {
         this.updateLabel();
         this.intervalId = setInterval(() => this.updateLabel(), 5000);
 
+        const input = this.shadowRoot.querySelector('.SearchBox__input');
+        input.addEventListener('focus', () => {
+            clearInterval(this.intervalId);
+            this.dispatchEvent(new CustomEvent('input-focused', { bubbles: true, composed: true }));
+        });
+
+        input.addEventListener('blur', () => {
+            this.updateLabel();
+            this.intervalId = setInterval(() => this.updateLabel(), 5000);
+            this.dispatchEvent(new CustomEvent('input-blurred', { bubbles: true, composed: true }));
+        });
+
         this.shadowRoot.querySelector('.searchboxForm').addEventListener('input', () => {
-            const input = this.shadowRoot.querySelector('.SearchBox__input');
             if (input.value) {
                 clearInterval(this.intervalId);
             } else {
