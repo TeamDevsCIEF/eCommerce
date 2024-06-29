@@ -53,9 +53,11 @@ class MyHeader extends HTMLElement {
   }
 
   showHistory() {
+    const searchboxForm = this.shadowRoot.getE('searchbox_SearchBox--header');
     const historyElement = document.createElement('my-header-history');
     historyElement.id = 'history-element';
-    this.shadowRoot.appendChild(historyElement);
+    //this.shadowRoot.appendChild(historyElement);
+    searchboxForm.appendChild(historyElement);
   }
     
   hideHistory() {
