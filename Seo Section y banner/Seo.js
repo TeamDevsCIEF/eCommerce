@@ -13,12 +13,12 @@ class MySeo extends HTMLElement {
         // Cargar y adjuntar los estilos desde un archivo CSS
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', '/Seo Section y banner/Seo.css');
+        linkElem.setAttribute('href', './Seo Section y banner/Seo.css');
         this.shadowRoot.appendChild(linkElem);
   
         // Cargar contenido HTML desde un archivo
         try {
-            const response = await fetch('/Seo Section y banner/Seo.html');
+            const response = await fetch('./Seo Section y banner/Seo.html');
             if (response.ok) {
                 const html = await response.text();
                 const wrapper = document.createElement('div');
