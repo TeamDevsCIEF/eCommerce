@@ -13,12 +13,12 @@ class MyCategory extends HTMLElement {
       // Cargar y adjuntar los estilos desde un archivo CSS
       const linkElem = document.createElement('link');
       linkElem.setAttribute('rel', 'stylesheet');
-      linkElem.setAttribute('href', '/MenuCategorias/Categorias.css');
+      linkElem.setAttribute('href', './MenuCategorias/Categorias.css');
       this.shadowRoot.appendChild(linkElem);
 
       // Cargar contenido HTML desde un archivo
       try {
-          const response = await fetch('/MenuCategorias/Categorias.html');
+          const response = await fetch('./MenuCategorias/Categorias.html');
           if (response.ok) {
               const html = await response.text();
               const wrapper = document.createElement('div');
