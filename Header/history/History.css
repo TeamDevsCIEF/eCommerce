@@ -43,3 +43,38 @@
 
 
 
+.div-historyText-category{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  border-radius: 15px;
+  z-index: 10; /* Ajustar según sea necesario */
+
+  
+}
+.history-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 15px;
+  z-index: 10; 
+  margin: 0;
+  margin-block: 0;
+  padding: 0;
+}
+
+  .category{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 15px;
+    z-index: 10; /* Ajustar según sea necesario */
+   margin: 1px; 
+  }
