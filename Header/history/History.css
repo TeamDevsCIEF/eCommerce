@@ -1,38 +1,45 @@
 /* Estilos para el contenedor de la ventana flotante */
-
 .Header_history_SearchBox {
-    position: relative;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 400px;
-    max-height: 80vh;
-    overflow-y: auto;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    z-index: 1000; /* Ajustar según sea necesario */
-  }
-  
-  /* Estilos para la lista ul dentro de la ventana */
-  .Header_history_SearchBox__recentSearches_ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* Estilos para cada elemento li */
-  .Header_history_SearchBox__recentSearches_li {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .Header_history_SearchBox__recentSearches_li:last-child {
-    border-bottom: none;
-  }
-  
-  /* Estilos para el contenido dentro de cada li */
-  
-  
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: visible;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  z-index: 10; /* Ajustar según sea necesario */
+
+  /*display: none;  Inicialmente oculto */
+
+}
+
+/* Estilos para la lista ul dentro de la ventana */
+.Header_history_SearchBox__recentSearches_ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Estilos para cada elemento li */
+.Header_history_SearchBox__recentSearches_li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.Header_history_SearchBox__recentSearches_li:last-child {
+  border-bottom: none;
+}
+
+/* Estilos para el contenido dentro de cada li */
+.Header_history_SearchBox__recentSearches_li img {
+  margin-right: 10px;
+}
+
+
+
