@@ -13,12 +13,12 @@ class MyHeaderRecomendations extends HTMLElement {
         // Cargar y adjuntar los estilos desde un archivo CSS
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', '/Header/recomendations/Recomendation.css');
+        linkElem.setAttribute('href', './Header/recomendations/Recomendation.css');
         this.shadowRoot.appendChild(linkElem);
   
         // Cargar contenido HTML desde un archivo
         try {
-            const response = await fetch('/Header/recomendations/Recomendation.html');
+            const response = await fetch('./Header/recomendations/Recomendation.html');
             if (response.ok) {
                 const html = await response.text();
                 const wrapper = document.createElement('div');

@@ -15,19 +15,19 @@ class MyHeader extends HTMLElement {
   }
 
   async loadContent() {
-    const linkElem = document.createElement('link');
-    linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', '/Header/header.css');
-    this.shadowRoot.appendChild(linkElem);
-
     // Cargar estilos globales
     const globalStyles = document.createElement('link');
     globalStyles.setAttribute('rel', 'stylesheet');
-    globalStyles.setAttribute('href', '/style.css'); // Ruta al archivo de estilos globales
+    globalStyles.setAttribute('href', './style.css'); // Ruta al archivo de estilos globales
     this.shadowRoot.appendChild(globalStyles);
 
+    const linkElem = document.createElement('link');
+    linkElem.setAttribute('rel', 'stylesheet');
+    linkElem.setAttribute('href', './Header/header.css');
+    this.shadowRoot.appendChild(linkElem);
+
     try {
-      const response = await fetch('/Header/header.html');
+      const response = await fetch('./Header/header.html');
       if (response.ok) {
         const html = await response.text();
         const wrapper = document.createElement('div');

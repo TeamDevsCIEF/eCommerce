@@ -13,12 +13,12 @@ class MyHeaderHistory extends HTMLElement {
       // Cargar y adjuntar los estilos desde un archivo CSS
       const linkElem = document.createElement('link');
       linkElem.setAttribute('rel', 'stylesheet');
-      linkElem.setAttribute('href', '/Header/history/History.css');
+      linkElem.setAttribute('href', './Header/history/History.css');
       this.shadowRoot.appendChild(linkElem);
   
       // Cargar contenido HTML desde un archivo
       try {
-        const response = await fetch('/Header/history/History.html');
+        const response = await fetch('./Header/history/History.html');
         if (response.ok) {
           const html = await response.text();
           const wrapper = document.createElement('div');

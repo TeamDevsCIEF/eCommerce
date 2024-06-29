@@ -14,10 +14,10 @@ class SearchboxForm extends HTMLElement {
     async loadContent() {
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', '/Header/SearchboxForm/searchboxForm.css');
+        linkElem.setAttribute('href', './Header/SearchboxForm/searchboxForm.css');
         this.shadowRoot.appendChild(linkElem);
         try {
-            const response = await fetch('/Header/SearchboxForm/searchboxForm.html');
+            const response = await fetch('./Header/SearchboxForm/searchboxForm.html');
             if (response.ok) {
                 const html = await response.text();
                 const wrapper = document.createElement('div');
