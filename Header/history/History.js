@@ -27,6 +27,11 @@ class MyHeaderHistory extends HTMLElement {
     this.loadContent();
   }
   async loadContent() {
+    const globalStyles = document.createElement('link');
+    globalStyles.setAttribute('rel', 'stylesheet');
+    globalStyles.setAttribute('href', './style.css'); 
+    this.shadowRoot.appendChild(globalStyles);
+
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
     linkElem.setAttribute('href', './Header/history/History.css');
@@ -36,7 +41,7 @@ class MyHeaderHistory extends HTMLElement {
       if (response.ok) {
         const html = await response.text();
         const wrapper = document.createElement('div');
-        wrapper.className = 'Header_history_SearchBox show';
+        wrapper.className = 'Header_history_SearchBox';
         wrapper.innerHTML = html;
         this.shadowRoot.appendChild(wrapper);
 
@@ -101,9 +106,9 @@ class MyHeaderHistory extends HTMLElement {
   }
 
   organizeSuggestions(suggestions) {
-    const limit = 12;
+    const limit = 9;
     const normalType = suggestions.filter(suggestion => (suggestion.type === 'suggestion' || suggestion.type === null ));
-    const normalLimit = Math.min(10, normalType.length);
+    const normalLimit = Math.min(limit*.6, normalType.length);
 
     const histories = suggestions.filter(s => s.type === 'history');
     const favorites = suggestions.filter(s => s.type === 'favorite');
