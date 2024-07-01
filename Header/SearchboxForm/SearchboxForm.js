@@ -1,10 +1,14 @@
+import SuggestionsHandler from '../../services/api/SuggestionsHandler.js';
+
 class SearchboxForm extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
         this.palabras = ["iPhone", "Tablet", "Celulares", "Android"];
         this.index = 0;
-        this.intervalId = null;}
+        this.intervalId = null;
+        this.handler = new SuggestionsHandler();
+    }
     connectedCallback() { this.loadContent(); }
     async loadContent() {
         const linkElem = document.createElement('link');
@@ -20,8 +24,9 @@ class SearchboxForm extends HTMLElement {
                 this.shadowRoot.appendChild(wrapper);
                 this.searchLabelSpan = this.shadowRoot.querySelector('.searchboxForm__label span');
                 this.initEvents();
-            } else {console.error('Error loading searchboxForm.html:', response.statusText);}
-        } catch (error) {console.error('Error fetching searchboxForm.html:', error);}}
+            } else { console.error('Error loading searchboxForm.html:', response.statusText); }
+        } catch (error) { console.error('Error fetching searchboxForm.html:', error); }
+    }
 
     initEvents() {
         this.updateLabel();
@@ -32,43 +37,76 @@ class SearchboxForm extends HTMLElement {
 
         input.addEventListener('focus', () => {
             clearInterval(this.intervalId);
-            this.showHistory();});
+            this.showHistory();
+        });
         input.addEventListener('focusout', (event) => {
             const relatedTarget = event.relatedTarget;
             const historyElement = this.shadowRoot.querySelector('#history-element');
             if (!searchboxForm.contains(relatedTarget) && (!historyElement || !historyElement.contains(relatedTarget))) {
                 this.updateLabel();
                 this.intervalId = setInterval(() => this.updateLabel(), 5000);
-                this.hideHistory();}});
+                this.hideHistory();
+            }
+        });
 
-        searchboxForm.addEventListener('input', () => {
-            if (input.value) {clearInterval(this.intervalId);} else {
-                clearInterval(this.intervalId);
+        input.addEventListener('input', async () => {
+            clearInterval(this.intervalId);
+            if (input.value) {
+                await this.updateSuggestions2(input.value);
+            } else {
                 this.updateLabel();
-                this.intervalId = setInterval(() => this.updateLabel(), 5000);}});
+                this.intervalId = setInterval(() => this.updateLabel(), 5000);
+            }
+        });
     }
 
-    disconnectedCallback() {clearInterval(this.intervalId);}
+    disconnectedCallback() { clearInterval(this.intervalId); }
 
     updateLabel() {
         this.searchLabelSpan.style.opacity = 0;
         setTimeout(() => {
             this.searchLabelSpan.textContent = this.palabras[this.index];
             this.searchLabelSpan.style.opacity = 1;
-            this.index = (this.index + 1) % this.palabras.length; }, 300);}
+            this.index = (this.index + 1) % this.palabras.length;
+        }, 300);
+    }
 
     showHistory() {
         const searchboxForm = this.shadowRoot.querySelector('.searchbox_SearchBox__suggestionsWrapper');
-        // Verificar si el elemento ya existe para no duplicar
-        if (!searchboxForm.querySelector('#history-element')) {
-            const historyElement = document.createElement('my-header-history');
-            historyElement.id = 'history-element';
-            searchboxForm.appendChild(historyElement);}}
+        if (!this.historyElement) {
+            this.historyElement = document.createElement('my-header-history');
+            this.historyElement.id = 'history-element';
+            searchboxForm.appendChild(this.historyElement);
+        }
+    }
 
     hideHistory() {
         const searchboxForm = this.shadowRoot.querySelector('.searchbox_SearchBox__suggestionsWrapper');
         const historyElement = searchboxForm.querySelector('#history-element');
-        if (historyElement) {historyElement.remove();}}
+        if (historyElement) { historyElement.remove(); }
+    }
+
+    async updateSuggestions2(keyword) {
+        await this.handler.updateSuggestions2(keyword);
+        this.renderSuggestions();
+    }
+
+    renderSuggestions() {
+        if (this.historyElement) {
+            console.log('renderSuggestions',this.handler.suggestions2);
+            this.historyElement.updateSuggestions(this.handler.suggestions2);
+        }
+        else
+        {const suggestionsWrapper = this.shadowRoot.querySelector('.searchbox_SearchBox__suggestionsWrapper');
+        suggestionsWrapper.innerHTML = '';
+
+        this.handler.suggestions2.forEach(suggestion => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.classList.add('suggestion-item');
+            suggestionElement.textContent = `${suggestion.text} - ${suggestion.subtitle}`;
+            suggestionsWrapper.appendChild(suggestionElement);
+        });}
+    }
 }
 
 customElements.define('my-searchboxform', SearchboxForm);

@@ -16,30 +16,30 @@ body {
   grid-template-columns: 0.5fr 8fr 2fr;
   align-items: center;
   background-color: #fff;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 0 32px;
   z-index: 1000;
   gap: 5px;
-
-  
+  border-bottom: 1px solid;
+  border-color: #d1dbe0;
+  height: 106px;
   .header_Header__logo {
     flex: 0 0 auto;
   }
 
   .searchbox_SearchBox--header {
- 
+    padding-left: 10px;
+    padding-right: 10px ;
     
   }
 
   
   .header__box_button{
-    display: grid;
-    grid-template-columns: minmax(auto,170px) minmax(auto,100px);
+    display: flex;
     gap: 5px;
-    flex-wrap: nowrap;
 
     .header__button {
-      height: 30px;
+      padding: 10px;
+      text-wrap: nowrap;
       border-radius: 15px;
       width: auto;
       background: transparent ;
