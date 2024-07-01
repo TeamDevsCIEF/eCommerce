@@ -13,12 +13,12 @@ class MyHero extends HTMLElement {
         // Cargar y adjuntar los estilos desde un archivo CSS
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', '/Hero Banner/Hero.css');
+        linkElem.setAttribute('href', './Hero Banner/Hero.css');
         this.shadowRoot.appendChild(linkElem);
   
         // Cargar contenido HTML desde un archivo
         try {
-            const response = await fetch('/Hero Banner/Hero.html');
+            const response = await fetch('./Hero Banner/Hero.html');
             if (response.ok) {
                 const html = await response.text();
                 const wrapper = document.createElement('div');
