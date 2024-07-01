@@ -1,4 +1,10 @@
-body {
-    display: flex;
+body nav{
+    
+}
+
+body nav ul {
+   list-style-type: none;
+   display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }

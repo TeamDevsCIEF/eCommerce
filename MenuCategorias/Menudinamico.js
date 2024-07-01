@@ -1,0 +1,1 @@
+const categorias = ["Ver todas las categoías", "Coches", "Motos y accesorios", "Moda y accesorios", "Inmobiliaria", "Tecnología y electrónica", "Móviles y Telefonía", "Informática", "Deporte y ocio", "Bicicletas", "Consolas y videojuegos", "Hogar y jardín", "Electrodomésticos", "Cine, libros y música"];

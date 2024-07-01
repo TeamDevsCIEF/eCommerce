@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :host {
     --primary-blue-color: #3dd2ba;
     --primary-color: #a3b8c1;
