@@ -3,24 +3,24 @@ class MyHeaderHistory extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.suggestions = [
-      { name: "iPhone 12", category: "Electrónicos" },
-      { name: "iPhone 12", category: "Electrónicos", type: "history" },
-      { name: "iPhone 11", category: "", type: "history" },
-      { name: "iPhone SE", category: "Electrónicos", type: "suggestion" },
-      { name: "iPhone 14", category: "Juguetes", type: "favorite" },
-      { name: "iPhone 88", category: "", type: "favorite" },
-      { name: "iPhone 87", category: "Decoraciones", type: "favorite" },
-      { name: "iPhone 86", category: "Decoraciones", type: "favorite" },
-      { name: "iPhone 58", category: "", type: "favorite" },
-      { name: "iPhone 8", category: "Decoraciones", type: "favorite" },
-      { name: "iPhone 4", category: "", type: "history" },
-      { name: "iPhone 102", category: "Electrónicos", type: "suggestion" },
-      { name: "iPhone 9", category: "Electrónicos", type: "suggestion" },
-      { name: "iPhone X", category: "Electrónicos", type: "suggestion" },
-      { name: "iPhone XR", category: "", type: "suggestion" },
-      { name: "iPhone XS", category: "Electrónicos", type: "suggestion" },
-      { name: "iPhone 7", category: "Electrónicos", type: "history" },
-      { name: "iPhone 5", category: "Decoraciones", type: "favorite" }
+      { id: 1, name: "iPhone 12", category: "Electrónicos" },
+      { id: 2, name: "iPhone 12", category: "Electrónicos", type: "history" },
+      { id: 3, name: "iPhone 11", category: "", type: "history" },
+      { id: 4, name: "iPhone SE", category: "Electrónicos", type: "suggestion" },
+      { id: 5, name: "iPhone 14", category: "Juguetes", type: "favorite" },
+      { id: 6, name: "iPhone 88", category: "", type: "favorite" },
+      { id: 7, name: "iPhone 87", category: "Decoraciones", type: "favorite" },
+      { id: 8, name: "iPhone 86", category: "Decoraciones", type: "favorite" },
+      { id: 9, name: "iPhone 58", category: "", type: "favorite" },
+      { id: 10, name: "iPhone 8", category: "Decoraciones", type: "favorite" },
+      { id: 11, name: "iPhone 4", category: "", type: "history" },
+      { id: 12, name: "iPhone 102", category: "Electrónicos", type: "suggestion" },
+      { id: 13, name: "iPhone 9", category: "Electrónicos", type: "suggestion" },
+      { id: 14, name: "iPhone X", category: "Electrónicos", type: "suggestion" },
+      { id: 15, name: "iPhone XR", category: "", type: "suggestion" },
+      { id: 16, name: "iPhone XS", category: "Electrónicos", type: "suggestion" },
+      { id: 17, name: "iPhone 7", category: "Electrónicos", type: "history" },
+      { id: 18, name: "iPhone 5", category: "Decoraciones", type: "favorite" }
     ];
   }
   connectedCallback() {
@@ -50,21 +50,21 @@ class MyHeaderHistory extends HTMLElement {
   }
 
   renderSuggestions() {
-      const orderedSuggestions = this.organizeSuggestions(this.suggestions);
+    const orderedSuggestions = this.organizeSuggestions(this.suggestions);
 
     const ulHistory = this.shadowRoot.querySelector('ul');
     if (!ulHistory) {
       console.error('Error: ul element not found in the shadow DOM.');
       return;
     }
-    ulHistory.innerHTML = ''; 
+    ulHistory.innerHTML = '';
 
     orderedSuggestions.forEach((item) => {
       const li = document.createElement('li');
       li.className = 'Header_history_SearchBox__recentSearches_li';
       li.innerHTML = this.getTemplate(item);
-      li.querySelector('.favorite-btn')?.addEventListener('click', () => this.handleFavorite(item.originalIndex));
-      li.querySelector('.delete-btn')?.addEventListener('click', () => this.handleDelete(item.originalIndex));
+      li.querySelector('.favorite-btn')?.addEventListener('click', () => this.handleFavorite(item.id));
+      li.querySelector('.delete-btn')?.addEventListener('click', () => this.handleDelete(item.id));
       ulHistory.appendChild(li);
     });
   }
@@ -97,32 +97,53 @@ class MyHeaderHistory extends HTMLElement {
             <p class="category">${category}</p>
           </div>
         `;
-      }
     }
-  
-    organizeSuggestions(suggestions) {
-      const histories = suggestions.filter(s => s.type === 'history').slice(0, 4);
-      const favorites = suggestions.filter(s => s.type === 'favorite').slice(0, 4);
-      const normalSuggestions = suggestions.filter(s => s.type !== 'history' && s.type !== 'favorite').slice(0, 4);
-  
-      return [...histories, ...favorites, ...normalSuggestions].map((item, index) => ({
-        ...item,
-        originalIndex: index
-      }));
   }
 
-  handleFavorite(index) {
-    if (index >= 0 && index < this.suggestions.length) {
-      this.suggestions[index].type = 'favorite';   
-    this.renderSuggestions();
-  }
+  organizeSuggestions(suggestions) {
+    const limit = 12;
+    const normalType = suggestions.filter(suggestion => (suggestion.type === 'suggestion' || suggestion.type === null ));
+    const normalLimit = Math.min(10, normalType.length);
+
+    const histories = suggestions.filter(s => s.type === 'history');
+    const favorites = suggestions.filter(s => s.type === 'favorite');
+
+
+    const normalSuggestions = normalType.slice(0, normalLimit);
+
+    const remainingSlots = limit - normalLimit;
+    const historyLimit = Math.min(Math.floor(remainingSlots / 2), histories.length);
+    const favoriteLimit = Math.min(remainingSlots - historyLimit, favorites.length);
+
+    const historiesResult = histories.slice(0, historyLimit);
+    const favoritesResult = favorites.slice(0, favoriteLimit);
+
+    return [...normalSuggestions, ...favoritesResult, ...historiesResult]
   }
 
-  handleDelete(index) {
-    if (index >= 0 && index < this.suggestions.length) {
-    this.suggestions.splice(index, 1);
+  handleFavorite(id) {
+
+    this.suggestions = this.suggestions.map(item => {
+      if (item.id == id) {
+        const tempItem = item;
+        tempItem.type = "favorite";
+        return tempItem;
+      }
+      return item;
+    })
+    console.log(this.suggestions, id)
     this.renderSuggestions();
+
   }
+
+  handleDelete(id) {
+
+
+    this.suggestions = this.suggestions.map(item => {
+      if (item.id != id) { return item }
+    }).filter(value => value !== undefined)
+    this.renderSuggestions();
+    console.log(this.suggestions, id)
 
 
   }
