@@ -35,4 +35,5 @@ class MyHero extends HTMLElement {
   
   // Definir el nuevo elemento
   customElements.define('my-hero', MyHero);
+  export default MyHero;
   

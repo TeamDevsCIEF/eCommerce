@@ -2,9 +2,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Wallie, Helvetica;;
 }
 :host {
     --primary-blue-color: #3dd2ba;
+    --primary-gray-color:#a3b8c1;
+    --secondary-gray-color:#29363d;
+    --terteary-gray-color:#5c7a89;
+    --cuarto-gray-color:#90a4ae;
+    --quinto-gray-color:#253238;
     --primary-color: #a3b8c1;
     --secondary-color: #000;
     --input-font-size: 1.5rem;

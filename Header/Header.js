@@ -1,3 +1,4 @@
+import SearchboxForm from './SearchboxForm/SearchboxForm.js';
 class MyHeader extends HTMLElement {
   constructor() {
     super();
@@ -43,3 +44,4 @@ class MyHeader extends HTMLElement {
 }
 
 customElements.define('my-header', MyHeader);
+export default MyHeader;
