@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Wallie, Helvetica;;
-}
+  font-family: 'Poppins', 'Courier New', Courier, monospace, sans-serif;}
+  
+
+
 :host {
     --primary-blue-color: #3dd2ba;
     --primary-gray-color:#a3b8c1;
