@@ -6,7 +6,7 @@
     --icon-left: 10px;
     --transition-duration: 0.3s;
     --border-radius: 30px;
-    --border: solid 1px;
+    --border: solid 1px #a3b8c1;
     --padding: 5px 10px;
     --padding-left-with-icon: 30px;
     --padding-left-without-icon: 1px;
@@ -86,5 +86,9 @@
             opacity: 1;
             transition: opacity var(--fade-duration);
         }
+    }
+
+    &:hover {
+        /*border-color: var(black);*/
     }
 }
