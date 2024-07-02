@@ -35,4 +35,4 @@ class MyFooter extends HTMLElement {
   
   // Definir el nuevo elemento
   customElements.define('my-footer', MyFooter);
-  
+  export default MyFooter;

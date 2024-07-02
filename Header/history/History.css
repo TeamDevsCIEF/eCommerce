@@ -12,7 +12,48 @@
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  z-index: 10; 
+  z-index: 100000; 
+
+  .Header_history_SearchBox__recentSearches_li {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f9f9f9;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .div-historyText-category{
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     
+    }
+
+    .div_img_p{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      gap:8px
+      
+    }
+
+    .div_button{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 100%;
+    }
+  }
+
+
 }
 
 .Header_history_SearchBox__recentSearches_ul {
@@ -22,50 +63,33 @@
 }
 
 /* Estilos para cada elemento li */
-.Header_history_SearchBox__recentSearches_li {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-  transition: background-color 0.3s;
-}
-
-.Header_history_SearchBox__recentSearches_li:hover {
-  background-color: #f9f9f9;
-}
-
-
-.Header_history_SearchBox__recentSearches_li:last-child {
-  border-bottom: none;
-}
-
-/* Estilos para el contenido dentro de cada li */
-.Header_history_SearchBox__recentSearches_li img {
-  margin-right: 10px;
-  width: 24px;
-  height: 24px;
-}
 
 
 
-.div-historyText-category{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-}
+
+
+
+
+
+
+
+
 .history-text {
   font-size: 16px;
-  color: #333; 
+  color: var(--primary-blue-color); 
   margin: 0;
   padding: 0;
+  text-wrap: nowrap;
+  text-align: left;
 }
 
 .category{
   font-size: 14px;
-  color: #777;
+  color: var(--primary-color);
   margin: 0;
   padding: 0;
+  text-wrap: nowrap;
+  text-align: left;
   }
 
 button{

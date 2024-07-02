@@ -1,12 +1,11 @@
 :host {
     --primary-gray-color:#a3b8c1;
-    --secondary-gray-color:#5c7a89;
     --input-font-size: 1.5rem;
     --label-left: 40px;
     --icon-left: 10px;
     --transition-duration: 0.3s;
-    --border-radius: 30px;
-    --border: solid 1px #a3b8c1;
+    --border-radius: 32px;
+    --border: solid 1px var(--cuarto-gray-color);
     --padding: 5px 10px;
     --padding-left-with-icon: 30px;
     --padding-left-without-icon: 1px;
@@ -26,6 +25,8 @@
     padding: var(--padding);
     cursor: text;
     text-align: center;
+    height: 48px;
+    overflow: hidden;
 
     .SearchBox__input {
         width: 100%;
@@ -78,10 +79,11 @@
         align-items: center;
         transition: opacity var(--fade-duration);
 
+
         span {
             display: inline-block;
             font-size: var(--after-font-size);
-            color: var(--secondary-gray-color);
+            color: var(--terteary-gray-color);
             margin-left: 10px;
             opacity: 1;
             transition: opacity var(--fade-duration);
@@ -89,6 +91,7 @@
     }
 
     &:hover {
-        /*border-color: var(black);*/
+        border-color: var(--quinto-gray-color);
+        border-width: 2px;
     }
 }
