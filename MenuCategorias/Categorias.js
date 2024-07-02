@@ -35,3 +35,4 @@ class MyCategory extends HTMLElement {
 
 // Definir el nuevo elemento
 customElements.define('my-category', MyCategory);
+export default MyCategory;
