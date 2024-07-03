@@ -32,7 +32,5 @@ class MySeo extends HTMLElement {
         }
     }
   }
-  
-  // Definir el nuevo elemento
   customElements.define('my-seo', MySeo);
-  
+  export default MySeo;

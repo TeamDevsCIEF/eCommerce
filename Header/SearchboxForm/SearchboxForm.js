@@ -1,4 +1,5 @@
 import SuggestionsHandler from '../../services/api/SuggestionsHandler.js';
+import MyHeaderHistory from '../history/History.js';
 
 class SearchboxForm extends HTMLElement {
     constructor() {
@@ -11,6 +12,11 @@ class SearchboxForm extends HTMLElement {
     }
     connectedCallback() { this.loadContent(); }
     async loadContent() {
+        const globalStyles = document.createElement('link');
+        globalStyles.setAttribute('rel', 'stylesheet');
+        globalStyles.setAttribute('href', './style.css'); 
+        this.shadowRoot.appendChild(globalStyles);
+
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
         linkElem.setAttribute('href', './Header/SearchboxForm/SearchboxForm.css');
@@ -36,10 +42,12 @@ class SearchboxForm extends HTMLElement {
         const searchboxForm = this.shadowRoot.querySelector('.searchboxForm');
 
         input.addEventListener('focus', () => {
+            console.log('Input enfocado');
             clearInterval(this.intervalId);
             this.showHistory();
         });
         input.addEventListener('focusout', (event) => {
+            console.log('Input desenfocado');
             const relatedTarget = event.relatedTarget;
             const historyElement = this.shadowRoot.querySelector('#history-element');
             if (!searchboxForm.contains(relatedTarget) && (!historyElement || !historyElement.contains(relatedTarget))) {
@@ -77,7 +85,9 @@ class SearchboxForm extends HTMLElement {
             this.historyElement = document.createElement('my-header-history');
             this.historyElement.id = 'history-element';
             searchboxForm.appendChild(this.historyElement);
+            console.log('Historial mostrado');
         }
+        //else { this.renderSuggestions(); }
     }
 
     hideHistory() {
@@ -110,3 +120,4 @@ class SearchboxForm extends HTMLElement {
 }
 
 customElements.define('my-searchboxform', SearchboxForm);
+export default SearchboxForm;

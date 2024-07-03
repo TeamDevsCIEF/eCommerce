@@ -16,7 +16,7 @@ body {
   grid-template-columns: 0.5fr 8fr 2fr;
   align-items: center;
   background-color: #fff;
-  padding: 0 32px;
+  padding: 0 2rem;
   z-index: 1000;
   gap: 5px;
   border-bottom: 1px solid;
@@ -27,8 +27,8 @@ body {
   }
 
   .searchbox_SearchBox--header {
-    padding-left: 10px;
-    padding-right: 10px ;
+    padding-left: 24px;
+    padding-right: 16px ;
     
   }
 
