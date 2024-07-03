@@ -33,7 +33,11 @@ nav li:hover {
     display: none;
 }
 
-.products:hover ~ .tots, .tots:hover{
+.products:focus ~ .tots {
+    display: block;
+}
+
+.tots:focus ~ .all {
     display: block;
 }
 
