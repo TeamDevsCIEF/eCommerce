@@ -1,0 +1,40 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container_xxl{
+    max-width:1200px;
+    margin: 0 auto;
+}
+
+ul{
+    list-style-type: none;
+    li{
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.extended_footer{
+    display: flex;
+    flex-wrap: wrap;
+
+    .extended_footer_categories{
+        display: grid;
+        grid-template-columns: 1fr;
+        
+
+        li{
+            ul{
+                list-style-type: none;
+                display: flex;
+                gap: 10px;
+            }
+        }
+
+    }
+}
