@@ -1003,7 +1003,23 @@ class ExtendedFooter extends HTMLElement {
                 h3.textContent=inH3;
                 li.appendChild(h3);
                 li.appendChild(ul);
+                return li;
               };
+
+
+
+              for(let i of this.data){
+                //console.log("this.data",i)
+                let ul=document.createElement("ul")
+                ul.className="extended_footer_categories_ul";
+                for(let ii of i.link){
+                  ul.appendChild(li_li(ii.href,ii.text))
+                }
+                this.shadowRoot.querySelector(".extended_footer_categories").appendChild(li(i.title,ul))
+                
+
+                
+              }
           } else {
               console.error('Error loading Seo.html:', response.statusText);
           }

@@ -20,19 +20,23 @@ ul{
 }
 
 .extended_footer{
-    display: flex;
-    flex-wrap: wrap;
 
     .extended_footer_categories{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(5, minmax(250px, 1fr));
+        grid-auto-rows: minmax(50px, auto); 
         
-
-        li{
-            ul{
-                list-style-type: none;
-                display: flex;
-                gap: 10px;
+        .extended_footer_categories_ul{
+            display: flex;
+            flex-wrap: wrap;  
+            li{
+                margin-right: 5px;
+                line-height: 20px;
+                a{
+                    font-family: Wallie,Helvetica;
+                    color: #607d8b;
+                    font-size: 0.75rem;
+                }
             }
         }
 
