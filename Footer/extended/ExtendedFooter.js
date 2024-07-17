@@ -969,7 +969,11 @@ class ExtendedFooter extends HTMLElement {
   }
 
   async loadContent() {
-      // Cargar y adjuntar los estilos desde un archivo CSS
+      const globalStyles = document.createElement('link');
+      globalStyles.setAttribute('rel', 'stylesheet');
+      globalStyles.setAttribute('href', './style.css'); 
+      this.shadowRoot.appendChild(globalStyles);
+      
       const linkElem = document.createElement('link');
       linkElem.setAttribute('rel', 'stylesheet');
       linkElem.setAttribute('href', './Footer/extended/ExtendedFooter.css');

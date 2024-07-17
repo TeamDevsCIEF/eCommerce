@@ -103,7 +103,11 @@ class MyFooter extends HTMLElement {
     }
   
     async loadContent() {
-        // Cargar y adjuntar los estilos desde un archivo CSS
+        const globalStyles = document.createElement('link');
+        globalStyles.setAttribute('rel', 'stylesheet');
+        globalStyles.setAttribute('href', './style.css'); 
+        this.shadowRoot.appendChild(globalStyles);
+
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
         linkElem.setAttribute('href', './Footer/Footer.css');
@@ -151,6 +155,7 @@ class MyFooter extends HTMLElement {
                 img.alt="Wallapop";
                 img.loading="lazy";
                 let p=document.createElement("p");
+                p.classList.add("footer_info_copyright");
                 p.textContent="© 2013-2024 Wallapop. Todos los derechos reservados";
                 s.appendChild(img);
                 s.appendChild(p);

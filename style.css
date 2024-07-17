@@ -1,35 +1,196 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;1,300&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', 'Courier New', Courier, monospace, sans-serif;}
-  
+@font-face {
+  font-family: Wallie;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.ttf) format("truetype");
+  font-weight: 300;
+  font-display: fallback
+}
 
+@font-face {
+  font-family: Wallie;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf) format("truetype");
+  font-display: fallback
+}
+
+@font-face {
+  font-family: Wallie;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf) format("truetype");
+  font-weight: 700;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: Grenette;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/GrenettePro-Light.ttf) format("truetype");
+  font-display: fallback
+}
+
+@font-face {
+  font-family: Grenette;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/GrenettePro-SemiBold.ttf) format("truetype");
+  font-weight: 500;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: Grenette;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/GrenettePro-Black.ttf) format("truetype");
+  font-weight: 700;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: OCRAStd;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/OCRAStd.eot?#iefix) format("embedded-opentype"), url(//d22j03ecumputt.cloudfront.net/fonts/OCRAStd.otf) format("opentype"), url(//d22j03ecumputt.cloudfront.net/fonts/OCRAStd.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/OCRAStd.ttf) format("truetype"), url(//d22j03ecumputt.cloudfront.net/fonts/OCRAStd.svg#OCRAStd) format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback
+}
+
+@media(min-width: 576px) {
+  .contenedor {
+    max-width: 540px;
+  }
+}
+
+@media(min-width: 768px) {
+  .contenedor {
+    max-width: 720px
+  }
+}
+
+@media(min-width: 992px) {
+  .contenedor {
+    max-width: 960px;
+  }
+}
+
+@media(min-width: 1200px) {
+  .contenedor {
+    max-width: 1140px;
+  }
+}
 
 :host {
-    --primary-blue-color: #3dd2ba;
-    --primary-gray-color:#a3b8c1;
-    --secondary-gray-color:#29363d;
-    --terteary-gray-color:#5c7a89;
-    --cuarto-gray-color:#90a4ae;
-    --quinto-gray-color:#253238;
-    --primary-color: #a3b8c1;
-    --secondary-color: #000;
-    --input-font-size: 1.5rem;
-    --label-left: 40px;
-    --icon-left: 10px;
-    --transition-duration: 0.3s;
-    --border-radius: 30px;
-    --border: solid 1px;
-    --padding: 5px 10px;
-    --padding-left-with-icon: 30px;
-    --padding-left-without-icon: 1px;
-    --label-font-size: 1.5rem;
-    --after-font-size: 24px;
-    --fade-duration: 0.3s;
-    --header-height: 80px;
-    --logo-width: 150px;
-    --gap: 10px;
+  --primary-blue-color: #3dd2ba;
+  --primary-gray-color: #a3b8c1;
+  --secondary-gray-color: #29363d;
+  --terteary-gray-color: #5c7a89;
+  --cuarto-gray-color: #90a4ae;
+  --quinto-gray-color: #253238;
+  --sexto-gray-color: #607d8b;
+  --sectimo-gray-color: #253238;
+  --primary-color: #a3b8c1;
+  --secondary-color: #000;
+  --input-font-size: 1.5rem;
+  --label-left: 40px;
+  --icon-left: 10px;
+  --transition-duration: 0.3s;
+  --border-radius: 30px;
+  --border: solid 1px;
+  --padding: 5px 10px;
+  --padding-left-with-icon: 30px;
+  --padding-left-without-icon: 1px;
+  --label-font-size: 1.5rem;
+  --after-font-size: 24px;
+  --fade-duration: 0.3s;
+  --header-height: 80px;
+  --logo-width: 150px;
+  --gap: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Wallie, Helvetica;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box
+}
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff
+}
+
+
+
+.contenedor {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+
+ul {
+  list-style: none;
+
+  a {
+    text-decoration: none;
   }
+}
+
+
+
+
+
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block
+}
+
+
+@font-face {
+  font-family: WallieFit;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Fit.ttf) format("truetype");
+  font-display: fallback
+}
+
+@font-face {
+  font-family: WallieChunky;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky.ttf) format("truetype");
+  font-weight: 700;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: WallieSkinny;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Skinny.ttf) format("truetype");
+  font-weight: 300;
+  font-display: fallback
+}
+
+@font-face {
+  font-family: WallieChunkyCorrected;
+  src: url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky-fixed.woff2) format("woff2"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky-fixed.woff) format("woff"), url(//d22j03ecumputt.cloudfront.net/fonts/Wallie-Chunky-fixed.ttf) format("truetype");
+  font-display: fallback
+}

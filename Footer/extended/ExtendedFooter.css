@@ -53,12 +53,26 @@ ul{
     }
 
     .extended_footer_cities{
-        > h2 {
+        margin: 0 5px 20px 0;
+        .extended_footer_cities_container{
+            li{
+                margin-right: 4px;
+                h2 {
+                    display: inline;
+                    font-weight: 400;
+                    color: var(--sexto-gray-color);
+                    font-size: .875rem;
+                }
+            }
+        }
+
+        
+        .extended_footer_cities_title {
             margin-bottom: 4px;
             font-size: 1rem;
             line-height: 20px;
             font-weight: 700;
-            color: #253238;
+            color: var(--sectimo-gray-color);
         }
         line-height: 20px;
         ul{
@@ -81,6 +95,7 @@ ul{
         font-size: .75rem;
         line-height: 20px;
         color: #607d8b;
+        margin-bottom: 1rem;
     }
 
     }
