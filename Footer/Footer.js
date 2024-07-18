@@ -1,4 +1,5 @@
 import ExtendedFooter from './extended/ExtendedFooter.js';
+import MyNavFooter from './Nav/Nav.js'
 class MyFooter extends HTMLElement {
     constructor() {
         super();
@@ -111,9 +112,10 @@ class MyFooter extends HTMLElement {
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
         linkElem.setAttribute('href', './Footer/Footer.css');
-
-        const extended_footer = document.createElement('extended-footer');
         this.shadowRoot.appendChild(linkElem);
+        
+        const extended_footer = document.createElement('extended-footer');
+        
         this.shadowRoot.appendChild(extended_footer);
   
         // Cargar contenido HTML desde un archivo

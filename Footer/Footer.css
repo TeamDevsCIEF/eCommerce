@@ -47,18 +47,52 @@ svg{
         justify-content: space-between;
         align-items: center;
         margin-top: 32px;
-
+        padding: 0 44px;
         .footer_extra_apps{
             display: grid;
             grid-template-columns: repeat(4,1fr);
             gap: 15px;
 
+            a{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                text-align: center;
+                
+                }
+
+                span {
+                    font-family: Wallie;
+                    font-size: .875rem;
+                    font-weight: 500;
+                    color: #607d8b;
+                    margin: 8px;
+                    &:hover{
+                        color: var(--secundary-blue-color);
+                }
+            }
             .footer_extra_apps_items {
                 display: flex;
                 align-items: center;
             }
         }
         
+
+        .footer_extra_social{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            gap: 30px;
+
+            a{
+                text-decoration: none;
+                color: var(--cuarto-gray-color);
+
+                &:hover{
+                    color: var(--secundary-blue-color);
+                }
+            }
+        }
     }
 
     

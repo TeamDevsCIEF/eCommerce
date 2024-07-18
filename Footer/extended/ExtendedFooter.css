@@ -4,10 +4,7 @@
     padding: 0;
 }
 
-.container_xxl{
-    max-width:1200px;
-    margin: 0 auto;
-}
+
 
 ul{
     list-style-type: none;
@@ -99,6 +96,8 @@ ul{
         font-family: Wallie,Helvetica;
         font-size: .75rem;
         line-height: 20px;
+        font-weight: 400;
+        text-align: left;
         color: #607d8b;
         margin-bottom: 1rem;
     }

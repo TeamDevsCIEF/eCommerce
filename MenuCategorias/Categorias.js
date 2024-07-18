@@ -9,14 +9,19 @@ class MyCategory extends HTMLElement {
       this.loadContent();
   }
 
-  async loadContent() {
-      // Cargar y adjuntar los estilos desde un archivo CSS
-      const linkElem = document.createElement('link');
-      linkElem.setAttribute('rel', 'stylesheet');
-      linkElem.setAttribute('href', './MenuCategorias/Categorias.css');
-      this.shadowRoot.appendChild(linkElem);
+    async loadContent() {
+        const globalStyles = document.createElement('link');
+        globalStyles.setAttribute('rel', 'stylesheet');
+        globalStyles.setAttribute('href', './style.css'); 
+        this.shadowRoot.appendChild(globalStyles);
 
-      // Cargar contenido HTML desde un archivo
+        // Aqui esta referenciado el css, mas arriba hice el rel de los estilos globales
+        const linkElem = document.createElement('link');
+        linkElem.setAttribute('rel', 'stylesheet');
+        linkElem.setAttribute('href', './MenuCategorias/Categorias.css');
+        this.shadowRoot.appendChild(linkElem);
+
+
       try {
           const response = await fetch('./MenuCategorias/Categorias.html');
           if (response.ok) {
