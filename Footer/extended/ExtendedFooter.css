@@ -41,11 +41,16 @@ ul{
             flex-wrap: wrap;
 
             li{
+                margin-right: 5px;
 
                 a{
                     font-family: Wallie,Helvetica;
                     color: #607d8b;
                     font-size: 0.75rem;
+
+                    &:hover{
+                        color: var(--secundary-blue-color);
+                    }
                 }
             }
         }

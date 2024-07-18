@@ -4,6 +4,8 @@ svg{
 
 .footer{
     display: grid;
+    padding-bottom: 32px;
+
 
     .footer_info{
         display: grid;
@@ -38,6 +40,26 @@ svg{
         
     }
     
+    .footer_extra{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 32px;
+
+        .footer_extra_apps{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 15px;
+
+            .footer_extra_apps_items {
+                display: flex;
+                align-items: center;
+            }
+        }
+        
+    }
 
     
 
