@@ -1,4 +1,4 @@
-import MyHeader from './Header/Header.js';
+import MyHeader from './Components/Header/Header.js';
 import MyCategory from './MenuCategorias/Categorias.js'
 import MyHero from './Hero Banner/Hero.js'
 import MySeo from './Seo Section y banner/Seo.js';

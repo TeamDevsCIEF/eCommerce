@@ -24,11 +24,11 @@ class MyHeader extends HTMLElement {
 
     const linkElem = document.createElement('link');
     linkElem.setAttribute('rel', 'stylesheet');
-    linkElem.setAttribute('href', './Header/header.css');
+    linkElem.setAttribute('href', './Components/Header/header.css');
     this.shadowRoot.appendChild(linkElem);
 
     try {
-      const response = await fetch('./Header/header.html');
+      const response = await fetch('./Components/Header/header.html');
       if (response.ok) {
         const html = await response.text();
         const wrapper = document.createElement('div');

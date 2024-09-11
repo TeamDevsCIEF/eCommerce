@@ -1,4 +1,4 @@
-import SuggestionsHandler from '../../services/api/SuggestionsHandler.js';
+import SuggestionsHandler from '../../../services/api/SuggestionsHandler.js';
 import MyHeaderHistory from '../history/History.js';
 
 class SearchboxForm extends HTMLElement {
@@ -19,10 +19,10 @@ class SearchboxForm extends HTMLElement {
 
         const linkElem = document.createElement('link');
         linkElem.setAttribute('rel', 'stylesheet');
-        linkElem.setAttribute('href', './Header/SearchboxForm/SearchboxForm.css');
+        linkElem.setAttribute('href', './Components/Header/SearchboxForm/SearchboxForm.css');
         this.shadowRoot.appendChild(linkElem);
         try {
-            const response = await fetch('./Header/SearchboxForm/SearchboxForm.html');
+            const response = await fetch('./Components/Header/SearchboxForm/SearchboxForm.html');
             if (response.ok) {
                 const html = await response.text();
                 const wrapper = document.createElement('div');
